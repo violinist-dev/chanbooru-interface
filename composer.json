@@ -2,16 +2,29 @@
     "name": "desu-project/chanbooru-interface",
     "description": "A PHP interfaces used to create PHP SDKs for imageboards like Danbooru, Konachan and others.",
     "type": "library",
+    "keywords": [
+        "imageboard",
+        "interface",
+        "standard"
+    ],
+    "homepage": "https://github.com/desu-project/chanbooru-interface",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/desu-project/chanbooru-interface/issues",
+        "source": "https://github.com/desu-project/chanbooru-interface"
+    },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.11"
     },
     "authors": [
         {
-            "name": "Petr Luzhin",
+            "name": "Petr Flaks",
             "email": "lithx@yandex.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php" : "^7.2"
+    },
     "autoload": {
         "psr-4": {
             "DesuProject\\ChanbooruInterface\\": "src/"
