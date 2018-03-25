@@ -4,6 +4,12 @@
 
 It's collection of PHP interfaces useful for creating PHP SDKs for structured imageboards like Danbooru, Konachan and others.
 
+## Installation
+
+````
+composer require desu-project/chanbooru-interface
+````
+
 ## Implementations
 
 ### Desu Project's implementations
