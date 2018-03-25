@@ -1,0 +1,21 @@
+language: 'php'
+php:
+- '7.2'
+
+cache:
+  directories:
+  - 'vendor'
+
+before_install:
+# Disable Xdebug
+- phpenv config-rm xdebug.ini || return 0
+
+jobs:
+  include:
+  - stage: 'precache'
+    script:
+    - composer install
+
+  - stage: 'lint'
+    script:
+    - composer lint
