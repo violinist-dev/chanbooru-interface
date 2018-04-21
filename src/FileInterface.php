@@ -44,13 +44,4 @@ interface FileInterface
      * @return int
      */
     public function getHeight(): int;
-
-    /**
-     * File duration in seconds.
-     *
-     * Only for videos and GIFs (if imageboard returns its duration).
-     *
-     * @return null|int
-     */
-    public function getDuration(): ?int;
 }

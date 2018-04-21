@@ -72,11 +72,16 @@ interface PostInterface
     public function getStatus(): int;
 
     /**
-     * List of files associated with this post.
+     * Source file.
      *
-     * Files sorted by their size from smallest to largest.
-     *
-     * @return FileInterface[]
+     * @return FileInterface
      */
-    public function getFiles(): array;
+    public function getSourceFile(): FileInterface;
+
+    /**
+     * Preview image URL.
+     *
+     * @return string
+     */
+    public function getPreviewImageUrl(): string;
 }
