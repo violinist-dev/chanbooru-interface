@@ -5,13 +5,6 @@ namespace DesuProject\ChanbooruInterface;
 interface TagInterface
 {
     /**
-     * Tag's ID.
-     *
-     * @return int|string
-     */
-    public function getId();
-
-    /**
      * Tag's title.
      *
      * @return string
