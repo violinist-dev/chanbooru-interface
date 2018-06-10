@@ -4,6 +4,12 @@ namespace DesuProject\ChanbooruInterface;
 
 interface TagInterface
 {
+    const TYPE_TITLE = 1;
+    const TYPE_CHARACTER = 2;
+    const TYPE_ARTIST = 3;
+    const TYPE_META = 4;
+    const TYPE_MODEL = 5;
+
     /**
      * Tag's title.
      *
@@ -20,13 +26,11 @@ interface TagInterface
 
     /**
      * Tag's type.
-     * Tag's type.
      *
-     * Returns tag's type ID. It's recommended to create constants in
-     * classes that implement this interface begins with `TYPE_`. E.g.:
-     * `TYPE_CHARACTER = 2;`.
+     * Returns tag's type ID based on constants defined below.
+     * If tag type is unknown, null should be returned.
      *
      * @return int
      */
-    public function getType(): int;
+    public function getType(): ?int;
 }
