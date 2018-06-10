@@ -84,4 +84,11 @@ interface PostInterface
      * @return string
      */
     public function getPreviewImageUrl(): string;
+
+    /**
+     * File source.
+     *
+     * @return null|string
+     */
+    public function getSource(): ?string;
 }
