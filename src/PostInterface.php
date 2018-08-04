@@ -74,16 +74,16 @@ interface PostInterface
     /**
      * Source file.
      *
-     * @return FileInterface
+     * @return null|FileInterface
      */
-    public function getSourceFile(): FileInterface;
+    public function getSourceFile(): ?FileInterface;
 
     /**
      * Preview image URL.
      *
-     * @return string
+     * @return null|string
      */
-    public function getPreviewImageUrl(): string;
+    public function getPreviewImageUrl(): ?string;
 
     /**
      * File source.
@@ -91,4 +91,14 @@ interface PostInterface
      * @return null|string
      */
     public function getSource(): ?string;
+
+    /**
+     * Is it possible to access the post or not.
+     *
+     * Imageboards (like Danbooru) may provide access to some posts only for
+     * premium users due censorship or something like that.
+     *
+     * @return bool
+     */
+    public function isPostCensored(): bool;
 }
