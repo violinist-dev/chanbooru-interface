@@ -7,11 +7,9 @@ $finder = PhpCsFixer\Finder::create()
 
 return PhpCsFixer\Config::create()
     ->setRules([
-        '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
-        'concat_space' => [
-            'spacing' => 'one',
-        ],
+        'concat_space' => ['spacing' => 'one'],
+        'yoda_style' => false,
     ])
     ->setFinder($finder)
     ;

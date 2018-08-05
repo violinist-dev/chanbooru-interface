@@ -7,15 +7,27 @@ cache:
   - 'vendor'
 
 before_install:
-# Disable Xdebug
-- phpenv config-rm xdebug.ini || return 0
+- phpenv config-rm xdebug.ini || return 0 # Disable Xdebug
+
+install:
+- composer install
+
+before_script:
+- phpenv config-rm xdebug.ini || return 0 # Disable Xdebug
 
 jobs:
   include:
-  - stage: 'precache'
+  - stage: 'Code analysis'
+    name: 'Lint code using PHP-CS-Fixer'
     script:
-    - composer install
+    - composer app:lint-php-cs-fixer
 
-  - stage: 'lint'
+  - stage: 'Code analysis'
+    name: 'Lint code using CodeSniffer'
     script:
-    - composer lint
+    - composer app:lint-codesniffer
+
+  - stage: 'Code analysis'
+    name: 'Analyze code using PHPStan'
+    script:
+    - composer app:analyze-phpstan
