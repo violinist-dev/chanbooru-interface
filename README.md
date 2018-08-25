@@ -3,6 +3,7 @@
 [![Build status](https://api.travis-ci.org/desu-project/chanbooru-interface.svg)](https://travis-ci.org/desu-project/chanbooru-interface)
 [![Latest Stable Version](https://poser.pugx.org/desu-project/chanbooru-interface/version)](https://packagist.org/packages/desu-project/chanbooru-interface)
 [![Monthly Downloads](https://poser.pugx.org/desu-project/chanbooru-interface/d/monthly)](https://packagist.org/packages/desu-project/chanbooru-interface)
+[![Violinist enabled](https://img.shields.io/badge/violinist-enabled-brightgreen.svg?maxAge=604800)](https://violinist.io)
 
 It's collection of PHP interfaces useful for creating PHP SDKs for structured imageboards like Danbooru, Konachan and others.
 

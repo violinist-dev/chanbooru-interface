@@ -58,5 +58,12 @@
         "app:lint-php-cs-fixer": "Check PHP files for style errors using PHP-CS-Fixer rules.",
         "app:lint-codesniffer": "Check PHP files for style errors using CodeSniffer rules.",
         "app:analyze-phpstan": "Runs static analysis on PHP code with PHPStan."
+    },
+    "extra": {
+        "violinist": {
+            "blacklist": [],
+            "allow_updates_beyond_constraint": 1,
+            "update_with_dependencies": 1
+        }
     }
 }
