@@ -12,13 +12,13 @@ interface ClientInterface
      * Search posts.
      *
      * @param ClientInterface $client
-     * @param array           $tags
+     * @param string[]        $tags
      * @param int             $page
      * @param int             $limit
      *
      * @return PostInterface[]
      */
-    public static function searchPosts(
+    public function searchPosts(
         ClientInterface $client,
         array $tags,
         int $page,
@@ -35,7 +35,7 @@ interface ClientInterface
      *
      * @throws PostNotFoundException if post not found
      */
-    public static function getPostById(
+    public function getPostById(
         ClientInterface $client,
         int $id
     ): PostInterface;
@@ -51,7 +51,7 @@ interface ClientInterface
      *
      * @throws InvalidArgumentException if invalid $names argument passed
      */
-    public static function searchTags(
+    public function searchTags(
         ClientInterface $client,
         $names,
         string $orderBy,
@@ -62,12 +62,12 @@ interface ClientInterface
      * Search tags by names.
      *
      * @param ClientInterface $client
-     * @param array           $names
+     * @param string[]        $names
      * @param string          $orderBy
      *
      * @return TagInterface[]
      */
-    public static function searchTagsByNames(
+    public function searchTagsByNames(
         ClientInterface $client,
         array $names,
         string $orderBy
@@ -82,7 +82,7 @@ interface ClientInterface
      *
      * @return TagInterface[]
      */
-    public static function searchTagsByNamePattern(
+    public function searchTagsByNamePattern(
         ClientInterface $client,
         string $namePattern,
         string $orderBy
@@ -98,7 +98,7 @@ interface ClientInterface
      *
      * @throws TagNotFoundException if tag not found
      */
-    public static function searchTagByName(
+    public function searchTagByName(
         ClientInterface $client,
         string $name
     ): TagInterface;
