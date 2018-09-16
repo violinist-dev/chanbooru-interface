@@ -33,13 +33,13 @@
     },
     "scripts": {
         "app:fix-cs": [
-            "vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --show-progress=dots"
+            "vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --show-progress=dots --allow-risky=yes"
         ],
         "app:lint": [
             "@app:lint-php-cs-fixer"
         ],
         "app:lint-php-cs-fixer": [
-            "vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --show-progress=dots --dry-run"
+            "vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --show-progress=dots --allow-risky=yes --dry-run"
         ],
         "app:analyze-phpstan": [
             "php -d memory_limit=2048M vendor/bin/phpstan analyse --configuration=phpstan.neon --no-interaction"

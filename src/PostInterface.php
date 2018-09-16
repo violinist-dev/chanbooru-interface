@@ -1,39 +1,25 @@
 <?php
 
-namespace DesuProject\ChanbooruInterface;
+declare(strict_types=1);
 
-use DateTime;
+namespace DesuProject\ChanbooruInterface;
 
 interface PostInterface
 {
-    const RATING_SAFE = 1;
-    const RATING_QUESTIONABLE = 2;
-    const RATING_EXPLICIT = 3;
+    public const RATING_EXPLICIT = 3;
+    public const RATING_QUESTIONABLE = 2;
+    public const RATING_SAFE = 1;
+    public const STATUS_DELETED = 3;
+    public const STATUS_PENDING_MODERATION = 2;
 
-    const STATUS_PUBLISHED = 1;
-    const STATUS_PENDING_MODERATION = 2;
-    const STATUS_DELETED = 3;
-
-    /**
-     * Post's ID.
-     *
-     * @return int|string
-     */
-    public function getId();
-
-    /**
-     * Post's tags.
-     *
-     * @return TagInterface[]
-     */
-    public function getTags(): array;
+    public const STATUS_PUBLISHED = 1;
 
     /**
      * Date when post was created.
      *
-     * @return DateTime
+     * @return \DateTimeImmutable
      */
-    public function getCreationDate(): DateTime;
+    public function getCreationDate(): \DateTimeImmutable;
 
     /**
      * File's hash.
@@ -43,6 +29,20 @@ interface PostInterface
      * @return null|string
      */
     public function getHash(): ?string;
+
+    /**
+     * Post's ID.
+     *
+     * @return int|string
+     */
+    public function getId();
+
+    /**
+     * Preview image URL.
+     *
+     * @return null|string
+     */
+    public function getPreviewImageUrl(): ?string;
 
     /**
      * Post's rating.
@@ -63,13 +63,11 @@ interface PostInterface
     public function getScore(): int;
 
     /**
-     * Post's status.
+     * File source.
      *
-     * Returns `STATUS_` contants' values.
-     *
-     * @return int
+     * @return null|string
      */
-    public function getStatus(): int;
+    public function getSource(): ?string;
 
     /**
      * Source file.
@@ -79,18 +77,20 @@ interface PostInterface
     public function getSourceFile(): ?FileInterface;
 
     /**
-     * Preview image URL.
+     * Post's status.
      *
-     * @return null|string
+     * Returns `STATUS_` contants' values.
+     *
+     * @return int
      */
-    public function getPreviewImageUrl(): ?string;
+    public function getStatus(): int;
 
     /**
-     * File source.
+     * Post's tags.
      *
-     * @return null|string
+     * @return TagInterface[]
      */
-    public function getSource(): ?string;
+    public function getTags(): array;
 
     /**
      * Is it possible to access the post or not.

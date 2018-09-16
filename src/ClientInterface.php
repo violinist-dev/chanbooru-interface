@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DesuProject\ChanbooruInterface;
 
 use DesuProject\ChanbooruInterface\Exception\PostNotFoundException;
@@ -8,6 +10,19 @@ use InvalidArgumentException;
 
 interface ClientInterface
 {
+    /**
+     * Get certain post by its ID or throw exception if nothing found.
+     *
+     * @param int $id
+     *
+     * @throws PostNotFoundException if post not found
+     *
+     * @return PostInterface
+     */
+    public function getPostById(
+        int $id
+    ): PostInterface;
+
     /**
      * Search posts.
      *
@@ -24,45 +39,32 @@ interface ClientInterface
     ): array;
 
     /**
-     * Get certain post by its ID or throw exception if nothing found.
+     * Search tag by name or throw exception if nothing found.
      *
-     * @param int $id
+     * @param string $name
      *
-     * @return PostInterface
+     * @throws TagNotFoundException if tag not found
      *
-     * @throws PostNotFoundException if post not found
+     * @return TagInterface
      */
-    public function getPostById(
-        int $id
-    ): PostInterface;
+    public function searchTagByName(
+        string $name
+    ): TagInterface;
 
     /**
-     * @param array|null|string $names   If it's string, it will search by pattern.
-     *                                   If it's array, it will search strictly by tag names.
-     * @param string $orderBy
-     * @param bool   $hideEmpty
-     *
-     * @return TagInterface[]
+     * @param array|null|string $names     if it's string, it will search by pattern.
+     *                                     If it's array, it will search strictly by tag names
+     * @param string            $orderBy
+     * @param bool              $hideEmpty
      *
      * @throws InvalidArgumentException if invalid $names argument passed
+     *
+     * @return TagInterface[]
      */
     public function searchTags(
         $names,
         string $orderBy,
         bool $hideEmpty = true
-    ): array;
-
-    /**
-     * Search tags by names.
-     *
-     * @param string[] $names
-     * @param string   $orderBy
-     *
-     * @return TagInterface[]
-     */
-    public function searchTagsByNames(
-        array $names,
-        string $orderBy
     ): array;
 
     /**
@@ -79,15 +81,15 @@ interface ClientInterface
     ): array;
 
     /**
-     * Search tag by name or throw exception if nothing found.
+     * Search tags by names.
      *
-     * @param string $name
+     * @param string[] $names
+     * @param string   $orderBy
      *
-     * @return TagInterface
-     *
-     * @throws TagNotFoundException if tag not found
+     * @return TagInterface[]
      */
-    public function searchTagByName(
-        string $name
-    ): TagInterface;
+    public function searchTagsByNames(
+        array $names,
+        string $orderBy
+    ): array;
 }

@@ -1,11 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DesuProject\ChanbooruInterface;
 
 interface FileInterface
 {
-    const TYPE_IMAGE = 1;
-    const TYPE_VIDEO = 2;
+    public const TYPE_IMAGE = 1;
+    public const TYPE_VIDEO = 2;
+
+    /**
+     * File height in pixels.
+     *
+     * @return int
+     */
+    public function getHeight(): int;
 
     /**
      * File size in bytes.
@@ -13,13 +22,6 @@ interface FileInterface
      * @return int
      */
     public function getSize(): int;
-
-    /**
-     * URL to file.
-     *
-     * @return string
-     */
-    public function getUrl(): string;
 
     /**
      * File type.
@@ -32,16 +34,16 @@ interface FileInterface
     public function getType(): ?int;
 
     /**
+     * URL to file.
+     *
+     * @return string
+     */
+    public function getUrl(): string;
+
+    /**
      * File width in pixels.
      *
      * @return int
      */
     public function getWidth(): int;
-
-    /**
-     * File height in pixels.
-     *
-     * @return int
-     */
-    public function getHeight(): int;
 }
